@@ -34,7 +34,6 @@ console.log("-------------- Teste de Operações / Calculadora --------------");
 
 let num1 = readlineSync.question("Qual o primeiro numero?");
 let num2 = readlineSync.question("Qual o segundo numero?");
-
 let operacao = readlineSync.question(`Qual eh a operacao?
 Para adicao digite 1;
 Para subtracao digite 2;
@@ -44,8 +43,8 @@ Para divisao por 0 digite 5;
 Para saber raiz quadrada digite 6;
 Para saber uma porcentagem digite 7;
 
-
 `);
+
 
 switch (operacao) {
     case "1":
