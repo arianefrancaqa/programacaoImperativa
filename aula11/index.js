@@ -1,9 +1,9 @@
 let filmes = [
-  "star wars",
-  "totoro",
-  "rocky",
-  "pulp fiction",
-  "la vida es bella",
+    "star wars",
+    "totoro",
+    "rocky",
+    "pulp fiction",
+    "la vida es bella",
 ];
 
 //------------------------------- 1 -------------------------------
@@ -11,10 +11,10 @@ let filmes = [
 //o que na época tínhamos feito de forma "manual". Vamos movê-lo para uma maneira mais automática usando loops.
 
 function converterMaiusculasLoop(array) {
-  for (let i = 0; i < array.length; i++) {
-    array[i] = array[i].toUpperCase();
-  }
-  return array;
+    for (let i = 0; i < array.length; i++) {
+        array[i] = array[i].toUpperCase();
+    }
+    return array;
 }
 
 console.log(`
@@ -35,15 +35,15 @@ console.log(`
 //que nos permite adicionar o conteúdo de nossa matriz de filme animado à matriz de filme original.
 
 let filmesAnimados = [
-  "Toy Story",
-  "Procurando Nemo",
-  "Kung-fu Panda",
-  "Wally",
-  "Fortnite",
+    "Toy Story",
+    "Procurando Nemo",
+    "Kung-fu Panda",
+    "Wally",
+    "Fortnite",
 ];
 
 function removerUltimoElemento(array) {
-  return array.pop();
+    return array.pop();
 }
 
 let ultimoElemento = removerUltimoElemento(filmesAnimados);
@@ -63,10 +63,10 @@ let ultimoElemento = removerUltimoElemento(filmesAnimados);
 // }
 
 function passagemDeElementos(array1, array2) {
-  for (const element of array2) {
-    array1.push(array2.pop().toUpperCase());
-  }
-  return array1;
+    for (const element of array2) {
+        array1.push(array2.pop().toUpperCase());
+    }
+    return array1;
 }
 console.log(`
 
@@ -118,14 +118,14 @@ const euroScores = [8, 10, 6, 8, 10, 6, 7, 9, 5];
 // }
 
 function compararClassificacoes(asia, europa) {
-  let comparacionesAsiaEuropa = [];
-  for (let i = 0; i < asia.length; i++) {
-    comparacionesAsiaEuropa[i] = asia[i] == europa[i];
-    console.log(`
+    let comparacionesAsiaEuropa = [];
+    for (let i = 0; i < asia.length; i++) {
+        comparacionesAsiaEuropa[i] = asia[i] == europa[i];
+        console.log(`
     Pontuação Asia -> ${asia[i]} é igual Pontuação Europa ->  ${europa[i]} =  ${comparacionesAsiaEuropa[i]}
-    `)
-  }
-  return comparacionesAsiaEuropa;
+    `);
+    }
+    return comparacionesAsiaEuropa;
 }
 
 console.log(`
@@ -142,7 +142,6 @@ console.log(`
 
 `);
 
-
 // Participante A:  5, 8, 4, 9, 5
 // Participante B:  8, 7, 8, 6, 8
 // Participante C:  7, 5, 10, 8, 3
@@ -150,20 +149,107 @@ console.log(`
 // Com essas informações, nosso líder de Tecnologia nos pergunta o seguinte:
 // Determine qual seria a maneira ideal de representar cada participante com suas pontuações.
 
-
 // Crie uma função pontuacaoMedia à qual receba um participante por parâmetro e deve calcular e devolver
 //  a pontuação média dele.
 
-
-// Crie uma função pontuacaoMaior que receba um participante por parâmetro e deve calcular e devolver a pontuação 
+// Crie uma função pontuacaoMaior que receba um participante por parâmetro e deve calcular e devolver a pontuação
 // mais alta que o participante tem.
 
-
-// Logo nosso líder tecnológico nos pede para criar essas duas funções geramos uma nova funcionalidade chamada 
-// competição que receberá os 3 participantes por parâmetros, e executará as duas funções criadas anteriormente 
-// para calcular as médias e pontuações mais altas de cada uma, e deve anunciar (mostrar pelo console) o vencedor 
+// Logo nosso líder tecnológico nos pede para criar essas duas funções geramos uma nova funcionalidade chamada
+// competição que receberá os 3 participantes por parâmetros, e executará as duas funções criadas anteriormente
+// para calcular as médias e pontuações mais altas de cada uma, e deve anunciar (mostrar pelo console) o vencedor
 // de cada modalidade de pontuação.
 
-let participanteA = [];
-let participanteB = [];
-let participanteC = [];
+let participanteA = [5, 8, 4, 9, 5];
+let participanteB = [8, 7, 8, 6, 8];
+let participanteC = [7, 5, 10, 8, 3];
+
+function pontuacaoMedia(array) {
+    var i = 0;
+    let summ = 0;
+    let arrayLen = array.length;
+
+    while (i < arrayLen) {
+        summ = summ + array[i++];
+    }
+    return summ / arrayLen;
+}
+
+let a = pontuacaoMedia(participanteA);
+let b = pontuacaoMedia(participanteB);
+let c = pontuacaoMedia(participanteC);
+
+function pontuacaoMaior(array) {
+    return Math.max.apply(null, array);
+}
+
+// Logo nosso líder tecnológico nos pede para criar essas duas funções geramos uma nova funcionalidade chamada
+// competição que receberá os 3 participantes por parâmetros, e executará as duas funções criadas anteriormente
+// para calcular as médias e pontuações mais altas de cada uma, e deve anunciar (mostrar pelo console) o vencedor
+// de cada modalidade de pontuação.
+
+function encontraMaiorMedia(a,b,c){
+    let resultadoMediaA = pontuacaoMedia(a);
+    let resultadoMediaB = pontuacaoMedia(b);
+    let resultadoMediaC = pontuacaoMedia(c);
+    let maiorMedia;
+
+    if (resultadoMediaA > resultadoMediaB && resultadoMediaA > resultadoMediaC) {
+        maiorMedia = console.log("Maior média é a do Participante A com:" + resultadoMediaA);
+    } else if (resultadoMediaB > resultadoMediaA && resultadoMediaB > resultadoMediaC) {
+        maiorMedia = console.log("Maior média é a do Participante B com:" + resultadoMediaB);
+    } else {
+        maiorMedia = console.log("Maior média é a do Participante C com:" + resultadoMediaC);
+    }
+    return maiorMedia
+}
+
+function encontraMaiorNota(a,b,c){
+    let resultadoMaiorA = pontuacaoMaior(a);
+    let resultadoMaiorB = pontuacaoMaior(b);
+    let resultadoMaiorC = pontuacaoMaior(c);
+    let maiorNota;
+
+    if (resultadoMaiorA > resultadoMaiorB && resultadoMaiorA > resultadoMaiorC) {
+        maiorNota = console.log("Maior nota é a do Participante A com: " + resultadoMaiorA);
+    } else if (resultadoMaiorB > resultadoMaiorA && resultadoMaiorB > resultadoMaiorC) {
+        maiorNota = console.log("Maior nota é a do Participante B com: " + resultadoMaiorB);
+    } else if(resultadoMaiorC > resultadoMaiorA && resultadoMaiorC > resultadoMaiorB){
+        maiorNota = console.log("Maior nota é a do Participante C com: " + resultadoMaiorC);
+    }
+    return maiorNota
+}
+
+function competicao(a, b, c) {
+    let resultadoMedia = encontraMaiorMedia(a,b,c);
+    let resultadoMaior = encontraMaiorNota(a,b,c);
+
+    return(resultadoMedia, resultadoMaior);
+}
+
+console.log(`
+
+------------------------------- Exercício Bonus -------------------------------
+
+`);
+
+console.log(`
+                Média de pontuação Participante A: ${a};
+                Média de pontuação Participante B: ${b};
+                Média de pontuação Participante C: ${c};
+`);
+
+console.log(`
+                A maior pontuação Participante A: ${pontuacaoMaior(participanteA)};
+                A maior pontuação Participante B: ${pontuacaoMaior(participanteB)};
+                A maior pontuação Participante C: ${pontuacaoMaior(participanteC)};
+`);
+
+console.log(competicao(participanteA, participanteB, participanteC));
+
+console.log(`
+
+-------------------------------------//------------------------------------
+
+`);
+
