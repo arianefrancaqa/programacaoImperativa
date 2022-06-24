@@ -11,7 +11,10 @@ function Aluno(nome, qtdFaltas, notas) {
         while (i < arrayLen) {
             summ = summ + this.notas[i++];
         }
-        return summ / arrayLen;
+        return (summ / arrayLen).toFixed(2);
+    }
+    this.adicionaFalta = function(){
+       return this.qtdFaltas++
     }
 }
 
@@ -19,10 +22,17 @@ const aluno1 = new Aluno('Ariane França', 2, [10, 9, 10]);
 const aluno2 = new Aluno('João Pedro', 10, [8, 9, 9]);
 const aluno3 = new Aluno('Maria Souza', 5, [3, 5, 5]);
 
-console.log(aluno1.mediaNotas());
-console.log(aluno2.nome);
-console.log(aluno3.mediaNotas());
-console.log(aluno3.qtdFaltas);
+aluno3.adicionaFalta();
+
+console.log(`--------------------------- Média dos Alunos  ---------------------------
+`)
+console.log(`A média de ${aluno1.nome} é ${aluno1.mediaNotas()}
+`);
+console.log(`A média de ${aluno2.nome} é ${aluno2.mediaNotas()}
+`);
+console.log(`A média de ${aluno3.nome} é ${aluno3.mediaNotas()} e sua quantidade de faltas é de: ${aluno3.qtdFaltas}
+`);
+console.log(`---------------------------------- // -----------------------------------`)
 
 // crie o objeto literal curso que tem como atributos: nome do curso (string), 
 // nota de aprovação (number), faltas máximas (number) e uma lista de estudantes 
@@ -41,7 +51,7 @@ let curso = {
 
 const adicionaNovoAlunoNoCurso = (nome, qtdFaltas, notas) => {
     const novoAluno = new Aluno(nome, qtdFaltas, notas);
-    curso.listaEstudantes.push(novoAluno)
+    curso.listaEstudantes.push(novoAluno);
 }
 
 adicionaNovoAlunoNoCurso('Joana da Silva', 4, [5, 5, 5]);
@@ -65,10 +75,14 @@ const validaAprovacao = (aluno) => {
 const resultadoFinal = () => {
     console.log(`--------------------------- Notas Finais - Lista de Resultados ---------------------------
     `)
+    let arrayDeBool = [];
     for (const element of curso.listaEstudantes) {
         console.log(`------------------------------------------- // -------------------------------------------`)
         console.log(`${element.nome} foi aprovade? ${validaAprovacao(element)}`);
+        arrayDeBool.push(validaAprovacao(element));
     }
+    console.log(arrayDeBool);
+    return arrayDeBool;
 }
 
 resultadoFinal();
