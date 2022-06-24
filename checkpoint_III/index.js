@@ -78,7 +78,8 @@ const resultadoFinal = () => {
     let arrayDeBool = [];
     for (const element of curso.listaEstudantes) {
         console.log(`------------------------------------------- // -------------------------------------------`)
-        console.log(`${element.nome} foi aprovade? ${validaAprovacao(element)}`);
+        console.log(`${element.nome} foi aprovade? ${validaAprovacao(element)}
+        `);
         arrayDeBool.push(validaAprovacao(element));
     }
     console.log(arrayDeBool);
